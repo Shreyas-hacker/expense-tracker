@@ -1,12 +1,16 @@
 import "./ExpenseItem.css";
 
 function ExpenseItem(props) {
+  const month = props.date.toLocaleString('default', {month:'long'})
+  const day = props.date.toLocaleString('en-US', {day:'2-digit'})
+  const year = props.date.getFullYear()
+
   return (
     <div className="expense-item">
       <div>
-        <div>{props.date.toLocaleString('default', { month: 'long' })}</div>
-        <div>{props.date.getFullYear()}</div>
-        <div>{props.date.getDate()}</div>
+        <div>{month}</div>
+        <div>{year}</div>
+        <div>{day}</div>
       </div>
       <div className="express-item__description">
         <h2>{props.title}</h2>
